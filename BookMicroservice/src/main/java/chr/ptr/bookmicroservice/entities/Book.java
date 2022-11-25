@@ -1,5 +1,7 @@
 package chr.ptr.bookmicroservice.entities;
 
+import lombok.Data;
+
 import javax.persistence.*;
 import java.sql.Time;
 import java.sql.Timestamp;
@@ -7,6 +9,7 @@ import java.sql.Timestamp;
 
 @Entity
 @Table(name = "books")
+@Data
 public class Book {
 
     @Id
@@ -17,43 +20,15 @@ public class Book {
     private int pages;
     private Timestamp publication_date;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getAuthor() {
-        return author;
-    }
-
-    public void setAuthor(String author) {
-        this.author = author;
-    }
-
-    public int getPages() {
-        return pages;
-    }
-
-    public void setPages(int pages) {
-        this.pages = pages;
-    }
-
     public Timestamp getPublication_date() {
         return publication_date;
     }
 
     public void setPublication_date(String publication_date) {
         this.publication_date = Timestamp.valueOf(publication_date);
+    }
+
+    public void setPublication_date(Timestamp publication_date) {
+        this.publication_date = publication_date;
     }
 }

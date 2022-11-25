@@ -2,11 +2,13 @@ package chr.ptr.bookmicroservice.services;
 
 import chr.ptr.bookmicroservice.dao.BookDao;
 import chr.ptr.bookmicroservice.entities.Book;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class BookService implements IBookService{
 
