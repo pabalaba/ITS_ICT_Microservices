@@ -10,7 +10,7 @@ using CustomerMicroservice.Models;
 
 namespace CustomerMicroservice.Controllers
 {
-    [Route("api/products")]
+    [Route("api/customers")]
     [ApiController]
     public class CustomersController : ControllerBase
     {
