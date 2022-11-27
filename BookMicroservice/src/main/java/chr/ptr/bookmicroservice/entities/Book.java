@@ -3,6 +3,7 @@ package chr.ptr.bookmicroservice.entities;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Time;
 import java.sql.Timestamp;
 
@@ -18,17 +19,17 @@ public class Book {
     private String title;
     private String author;
     private int pages;
-    private Timestamp publication_date;
+    private Date publication_date;
 
-    public Timestamp getPublication_date() {
+    public Date getPublication_date() {
         return publication_date;
     }
 
     public void setPublication_date(String publication_date) {
-        this.publication_date = Timestamp.valueOf(publication_date);
+        this.publication_date = Date.valueOf(publication_date);
     }
 
-    public void setPublication_date(Timestamp publication_date) {
+    public void setPublication_date(Date publication_date) {
         this.publication_date = publication_date;
     }
 }

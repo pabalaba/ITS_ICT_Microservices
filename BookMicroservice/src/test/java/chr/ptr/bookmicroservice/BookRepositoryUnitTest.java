@@ -10,6 +10,7 @@ import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class BookRepositoryUnitTest {
         newBook.setTitle("Dieci Cento Mille");
         newBook.setAuthor("Peppe Luigi");
         newBook.setPages(345);
-        newBook.setPublication_date(new Timestamp(System.currentTimeMillis()));
+        newBook.setPublication_date(new Date(System.currentTimeMillis()));
         repository.save(newBook);
         assertEquals(1, repository.findAll().size());
     }
