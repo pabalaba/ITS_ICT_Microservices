@@ -4,8 +4,6 @@ import lombok.Data;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.sql.Time;
-import java.sql.Timestamp;
 
 
 @Entity
@@ -20,6 +18,7 @@ public class Book {
     private String author;
     private int pages;
     private Date publication_date;
+    private int quantity;
 
     public Date getPublication_date() {
         return publication_date;

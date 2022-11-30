@@ -3,5 +3,6 @@ CREATE TABLE `books` (
   `title` varchar(100) NOT NULL,
   `author` varchar(100) NOT NULL,
   `pages` int(11) NOT NULL,
-  `publication_date` date NOT NULL
+  `publication_date` date NOT NULL,
+  `quantity` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
