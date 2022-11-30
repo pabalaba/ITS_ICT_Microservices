@@ -16,6 +16,8 @@ public interface IBookService {
     Book indexBook(int id);
     //Update
     Book updateBook(int id,Book book);
+    Book updateAddQuantity(int id);
+    Book updateSubQuantity(int id);
     //Delete
     void deleteBook(int id);
 }
