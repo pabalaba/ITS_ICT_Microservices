@@ -1,9 +1,17 @@
 import { Field, Int, ObjectType } from "type-graphql";
 
+export interface IBorrow {
+  _id: string;
+  id_book: number;
+  id_customer: number;
+  borrowing_date: string;
+  returned: boolean;
+}
+
 @ObjectType()
 export class Borrow{
   @Field(() => String)
-  id?: string;
+  _id!: string;
 
   @Field(() => Int)
   id_book!: number;

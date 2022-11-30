@@ -1,11 +1,13 @@
 import "reflect-metadata";
 import express, { Express } from "express";
 import dotenv from "dotenv";
-import { ApolloServer } from "apollo-server-express"
 import { buildSchema } from "type-graphql"
-import {ApolloServerPluginLandingPageGraphQLPlayground} from "apollo-server-core"
-import { ListBooks } from "./resolvers/listBook";
-import { ListBorrow } from "./resolvers/listBorrow";
+import { ApolloServer } from "apollo-server-express"
+import { ApolloServerPluginLandingPageGraphQLPlayground } from "apollo-server-core"
+import { ListBooks } from "./resolvers/listBooks";
+import { ListBorrows } from "./resolvers/listBorrows";
+import { ListCustomers } from "./resolvers/listCustomers";
+import { ListCustomersBorrows } from "./resolvers/listCustomersBorrows";
 import { CreateBorrow } from "./resolvers/createBorrow";
 
 dotenv.config();
@@ -16,12 +18,16 @@ const main = async () => {
 
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
-      resolvers: [await ListBooks,
-                  await ListBorrow,
-                  await CreateBorrow],
-      validate: false
+      resolvers: [
+                  ListBooks,
+                  ListBorrows,
+                  ListCustomers,
+                  ListCustomersBorrows,
+                  CreateBorrow],
+      validate: false,
     }),
-    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()]
+    plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
+    debug: false
   })
   await apolloServer.start();
   const app: Express = express();

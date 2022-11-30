@@ -1,22 +1,31 @@
 import { Field, Int, ObjectType } from "type-graphql";
 
+export interface IBook {
+  id: number;
+  title: string;
+  author: string;
+  pages: number;
+  publication_date: string;
+  quantity: number;
+}
+
 @ObjectType()
 export class Book{
   @Field(() => Int)
-  id: number;
+  id?: number;
 
   @Field(() => String)
-  title: string;
+  title!: string;
 
   @Field(() => String)
-  author: string;
+  author!: string;
 
   @Field(() => Int, {nullable: true})
-  pages: number;
+  pages?: number;
 
   @Field(() => String, {nullable: true})
-  publication_date: string;
+  publication_date?: string;
 
   @Field(() => Int)
-  quantity: number;
+  quantity!: number;
 }
