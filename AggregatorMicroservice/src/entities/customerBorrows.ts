@@ -4,7 +4,7 @@ import { IBorrow,Borrow } from "./borrow";
 
 export interface ICustomerBorrow {
   customer: ICustomer;
-  borrows: [IBorrow];
+  borrows: Array<IBorrow>;
 }
 
 @ObjectType()
@@ -12,6 +12,6 @@ export class CustomerBorrow{
   @Field(() => Customer!)
   customer!: ICustomer;
 
-  @Field(() => [Borrow])
-  borrows?: [IBorrow];
+  @Field(() => Array<Borrow>)
+  borrows?: Array<IBorrow>;
 }

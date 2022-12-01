@@ -20,7 +20,7 @@ export class ListCustomersBorrows {
       for(var c of customers){
         var cb = new CustomerBorrow();
         cb.customer = c;
-        cb.borrows = borrows.filter(b => b.id_customer == c.id) || [];
+        cb.borrows = borrows.filter((b: { id_customer: number; }) => b.id_customer == c.id) || [];
         customerBorrows.push(cb);
       }
       return customerBorrows;
@@ -30,10 +30,10 @@ export class ListCustomersBorrows {
   }
 }
 
-const getCustomers = async function(): Promise<ICustomer[] | GraphQLError> {
+const getCustomers = async function(): Promise<Array<ICustomer>> {
   try{
     const {data} = 
-      await axios.get<ICustomer[]>(
+      await axios.get<Array<ICustomer>>(
         API_CUSTOMER || 'http://localhost:5001/api/customers',
         {
           headers: {
@@ -47,10 +47,10 @@ const getCustomers = async function(): Promise<ICustomer[] | GraphQLError> {
   }
 }
 
-const getBorrows = async function(): Promise<IBorrow[] | GraphQLError> {
+const getBorrows = async function(): Promise<Array<IBorrow>> {
   try{
     const {data} = 
-      await axios.get<IBorrow[]>(
+      await axios.get<Array<IBorrow>>(
         API_BORROW || 'http://localhost:27112/api/borrows',
         {
           headers: {

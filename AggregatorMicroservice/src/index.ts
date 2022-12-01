@@ -37,7 +37,7 @@ const main = async () => {
     res.send("YO"); 
   });
 
-  app.listen(PORT,()=>{
+  app.listen(PORT || 9997,()=>{
     console.log("The server is listening on port " + PORT);
   });
 }
