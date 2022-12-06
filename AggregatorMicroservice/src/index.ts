@@ -10,6 +10,7 @@ import { ListCustomers } from "./resolvers/listCustomers";
 import { ListCustomersBorrows } from "./resolvers/listCustomersBorrows";
 import { CreateBorrow } from "./resolvers/createBorrow";
 import { CreateCustomer } from "./resolvers/createCustomer";
+import { ReturnBorrow } from "./resolvers/returnBorrow";
 
 dotenv.config();
   
@@ -25,7 +26,8 @@ const main = async () => {
                   ListCustomers,
                   ListCustomersBorrows,
                   CreateBorrow,
-                  CreateCustomer
+                  CreateCustomer,
+                  ReturnBorrow
                 ],
       validate: false,
     }),
@@ -35,7 +37,7 @@ const main = async () => {
   await apolloServer.start();
   const app: Express = express();
   apolloServer.applyMiddleware({app});
-  
+
   app.listen(PORT || 9997,()=>{
     console.log("The server is listening on port " + PORT);
   });
