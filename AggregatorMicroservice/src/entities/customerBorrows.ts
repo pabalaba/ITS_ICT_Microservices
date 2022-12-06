@@ -1,10 +1,10 @@
 import { Field, Int, ObjectType } from "type-graphql";
 import { ICustomer,Customer } from "./customer";
-import { IBorrow,Borrow } from "./borrow";
+import { BorrowRead, IBorrowRead } from "./borrowRead";
 
 export interface ICustomerBorrow {
   customer: ICustomer;
-  borrows: [IBorrow];
+  borrows: IBorrowRead[];
 }
 
 @ObjectType()
@@ -12,6 +12,6 @@ export class CustomerBorrow{
   @Field(() => Customer!)
   customer!: ICustomer;
 
-  @Field(() => [Borrow])
-  borrows?: [IBorrow];
+  @Field(() => [BorrowRead])
+  borrows?: IBorrowRead[];
 }

@@ -9,6 +9,7 @@ import { ListBorrows } from "./resolvers/listBorrows";
 import { ListCustomers } from "./resolvers/listCustomers";
 import { ListCustomersBorrows } from "./resolvers/listCustomersBorrows";
 import { CreateBorrow } from "./resolvers/createBorrow";
+import { CreateCustomer } from "./resolvers/createCustomer";
 
 dotenv.config();
   
@@ -23,7 +24,9 @@ const main = async () => {
                   ListBorrows,
                   ListCustomers,
                   ListCustomersBorrows,
-                  CreateBorrow],
+                  CreateBorrow,
+                  CreateCustomer
+                ],
       validate: false,
     }),
     plugins: [ApolloServerPluginLandingPageGraphQLPlayground()],
