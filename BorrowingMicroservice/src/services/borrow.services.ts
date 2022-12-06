@@ -4,20 +4,24 @@ import Borrow, { IBorrow } from '../entities/borrow'
 
 export async function getAllBorrows():Promise<IBorrow[]> {
   const data = await Borrow.find().select("-__v");
-  return await data;
+  return data;
 }
 
 export async function getBorrowById(id:mongoose.Types.ObjectId):Promise<IBorrow | null> {
   const data = await Borrow.findById(id).select("-__v");
-  return await data;
+  return data;
 }
 
 export async function createBorrow(req: Request):Promise<IBorrow | null> {
-  const borrow = new Borrow({
-    id_book: req.body.id_book,
-    id_customer: req.body.id_customer,
-  });
-  return await getBorrowById((await borrow.save()).id);
+  try{
+    const borrow = new Borrow({
+      id_book: req.body.id_book,
+      id_customer: req.body.id_customer,
+    });
+    return await getBorrowById((await borrow.save()).id);
+  }catch(err){
+    return null;
+  }
 }
 
 export async function updateBorrow(id:mongoose.Types.ObjectId, req: Request):Promise<IBorrow | null> {
@@ -36,6 +40,22 @@ export async function updateBorrow(id:mongoose.Types.ObjectId, req: Request):Pro
   return borrowFromDb;
 }
 
+export async function returnBorrow(id:mongoose.Types.ObjectId): Promise<IBorrow | null> {
+
+  const borrowFromDb = await getBorrowById(id);
+
+  console.log(borrowFromDb);
+
+  if(!borrowFromDb)
+    return null;
+
+  borrowFromDb.returned = true;
+
+  await borrowFromDb.save();
+
+  return borrowFromDb;
+}
+
 export async function deleteBorrow(id:mongoose.Types.ObjectId):Promise<Boolean>{
-  return (await (await Borrow.deleteOne(id)).deletedCount===1)?true:false;
+  return ((await Borrow.deleteOne(id)).deletedCount===1)?true:false;
 }
