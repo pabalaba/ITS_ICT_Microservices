@@ -35,11 +35,7 @@ const main = async () => {
   await apolloServer.start();
   const app: Express = express();
   apolloServer.applyMiddleware({app});
-
-  app.get('/', (req, res) => { 
-    res.send("YO"); 
-  });
-
+  
   app.listen(PORT || 9997,()=>{
     console.log("The server is listening on port " + PORT);
   });
