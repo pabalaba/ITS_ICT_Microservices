@@ -3,7 +3,6 @@ import axios from "axios";
 const API_BOOK = process.env.API_BOOK;
 
 export default async (id: number): Promise<boolean>  => {
-  console.log(id)
   try{
     const {status} = 
       await axios.put(

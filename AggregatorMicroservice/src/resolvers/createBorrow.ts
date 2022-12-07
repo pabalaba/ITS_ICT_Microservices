@@ -4,6 +4,11 @@ import axios from "axios";
 import { IBorrow,Borrow } from "../entities/borrow";
 import { IBook } from "../entities/book";
 import { ICustomer } from "../entities/customer";
+import updateSubBook from "../utils/updateSubBook";
+import updateAddBook from "../utils/updateAddBook";
+import { IBorrowRead } from "../entities/borrowRead";
+import readBook from "../utils/readBook";
+import readCustomer from "../utils/readCustomer";
 
 @Resolver()
 export class CreateBorrow {
@@ -14,7 +19,7 @@ export class CreateBorrow {
     id_book: number,
     @Arg("id_customer", () => Int)
     id_customer: number
-  ): Promise<IBorrow | null | GraphQLError> {
+  ): Promise<Borrow | null | GraphQLError> {
     try{
       const book = await isBookPresent(id_book);
       const customer = await isCustomerPresent(id_customer);
@@ -22,9 +27,14 @@ export class CreateBorrow {
         throw new Error;
       }
 
+      const success = await updateSubBook(id_book);
+      if(!success){
+        throw new Error;
+      }
+
       try{
       const {data} =   
-      await axios.post<IBorrow>(
+      await axios.post<IBorrowRead>(
         'http://localhost:27112/api/borrows',
         {
           "id_book": id_book,
@@ -37,8 +47,26 @@ export class CreateBorrow {
         },
 
       );
-      return data;
+
+      var borrow = new Borrow();
+      var c = await readCustomer(id_customer);
+      var b = await readBook(id_customer);
+      
+      if(!c || !b) {
+        await axios.delete('http://localhost:27112/api/borrows/'+data._id);
+        await updateAddBook(id_book);
+        throw new Error;
+      }
+
+      borrow._id = data._id;
+      borrow.borrowing_date = data.borrowing_date;
+      borrow.returned = data.returned;
+      borrow.book = b;
+      borrow.customer = c;
+
+      return borrow;
       } catch (error) {
+        await updateAddBook(id_book);
         return new GraphQLError('Error during the creation of a new borrow');
       }
     } catch (error) {
