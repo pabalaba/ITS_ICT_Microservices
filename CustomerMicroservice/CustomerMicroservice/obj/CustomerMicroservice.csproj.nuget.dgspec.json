@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ICTS21-23.201\\Desktop\\ITS-ICT_Microservices_PC\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj": {}
+    "C:\\Users\\game\\Desktop\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ICTS21-23.201\\Desktop\\ITS-ICT_Microservices_PC\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj": {
+    "C:\\Users\\game\\Desktop\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ICTS21-23.201\\Desktop\\ITS-ICT_Microservices_PC\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj",
+        "projectUniqueName": "C:\\Users\\game\\Desktop\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj",
         "projectName": "CustomerMicroservice",
-        "projectPath": "C:\\Users\\ICTS21-23.201\\Desktop\\ITS-ICT_Microservices_PC\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj",
-        "packagesPath": "C:\\Users\\ICTS21-23.201\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ICTS21-23.201\\Desktop\\ITS-ICT_Microservices_PC\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\obj\\",
+        "projectPath": "C:\\Users\\game\\Desktop\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj",
+        "packagesPath": "C:\\Users\\game\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\game\\Desktop\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ICTS21-23.201\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\game\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -40,6 +40,10 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[12.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[3.1.31, )"
@@ -53,6 +57,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[3.1.30, )"
+            },
+            "Microsoft.Extensions.Logging.Log4Net.AspNetCore": {
+              "target": "Package",
+              "version": "[3.1.5, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
@@ -73,7 +81,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -85,7 +94,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.407\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
