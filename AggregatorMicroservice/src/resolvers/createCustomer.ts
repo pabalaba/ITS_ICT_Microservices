@@ -28,7 +28,8 @@ export class CreateCustomer {
           "name": name,
           "surname": surname,
           "address": address,
-          "age": age
+          "age": age,
+          "phone": phone_number
         },
         {
           headers: {
