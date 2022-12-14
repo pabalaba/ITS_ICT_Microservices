@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "J7T+mvAXNALGjD7dq5zcpStbcGYaSSAfjmmb9yfln5RdRMT+xL0bLlmqucHa/mx3nS0tZRes8cu8lYZZk+tvjQ==",
+  "dgSpecHash": "BNthcmgQ4JkjNQfOhwdwFI4eYMlKP0KFNMr3nirnQAq1mzNBRwGFW0aJXyYzWK/LyehiaNBxNm7ONoKEXXcuSA==",
   "success": true,
   "projectFilePath": "C:\\Users\\game\\Desktop\\ITS_ICT_Microservices\\CustomerMicroservice\\CustomerMicroservice\\CustomerMicroservice.csproj",
   "expectedPackageFiles": [
@@ -54,6 +54,7 @@
     "C:\\Users\\game\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\game\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\game\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
+    "C:\\Users\\game\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512",
     "C:\\Users\\game\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\3.1.5\\microsoft.visualstudio.web.codegeneration.3.1.5.nupkg.sha512",
     "C:\\Users\\game\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.contracts\\3.1.5\\microsoft.visualstudio.web.codegeneration.contracts.3.1.5.nupkg.sha512",
     "C:\\Users\\game\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\3.1.5\\microsoft.visualstudio.web.codegeneration.core.3.1.5.nupkg.sha512",
