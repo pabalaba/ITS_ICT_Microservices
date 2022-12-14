@@ -35,7 +35,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: CustomerMicroservice/CustomerMicroservice/
+        working-directory: CustomerMicroservice/
     steps:
     - uses: actions/checkout@v2
     - name: Add hosts to /etc/hosts
@@ -50,7 +50,7 @@ jobs:
     - name: Build and push Docker image
       uses: docker/build-push-action@v1.1.0
       with:
-        path: CustomerMicroservice/CustomerMicroservice/
+        path: CustomerMicroservice/
         dockerfile: CustomerMicroservice/CustomerMicroservice/Dockerfile
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
