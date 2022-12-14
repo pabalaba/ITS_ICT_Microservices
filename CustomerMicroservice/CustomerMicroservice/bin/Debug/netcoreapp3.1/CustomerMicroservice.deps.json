@@ -36,10 +36,10 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "3.1.30",
           "Microsoft.EntityFrameworkCore.Tools": "3.1.30",
           "Microsoft.Extensions.Logging.Log4Net.AspNetCore": "3.1.5",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.17.0",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "3.1.5",
           "MySql.EntityFrameworkCore": "3.1.27",
           "Swashbuckle.AspNetCore": "6.4.0",
-          "log4net-loggly": "9.0.0",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Cookies": "3.1.0.0",
@@ -415,21 +415,6 @@
         },
         "compile": {
           "lib/netstandard2.0/log4net.dll": {}
-        }
-      },
-      "log4net-loggly/9.0.0": {
-        "dependencies": {
-          "Newtonsoft.Json": "11.0.2",
-          "log4net": "2.0.11"
-        },
-        "runtime": {
-          "lib/netstandard2.0/log4net-loggly.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.0.0"
-          }
-        },
-        "compile": {
-          "lib/netstandard2.0/log4net-loggly.dll": {}
         }
       },
       "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
@@ -1124,6 +1109,7 @@
           "lib/netstandard2.0/Microsoft.OpenApi.dll": {}
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.17.0": {},
       "Microsoft.VisualStudio.Web.CodeGeneration/3.1.5": {
         "dependencies": {
           "Microsoft.Extensions.DependencyInjection": "3.1.31",
@@ -4165,13 +4151,6 @@
       "path": "log4net/2.0.11",
       "hashPath": "log4net.2.0.11.nupkg.sha512"
     },
-    "log4net-loggly/9.0.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-v9Y8ikah3Ij3hp5PBYPVQUTAFTrziDdpTltsF5ES2XUasqzHkABXcYiPNZcDrICmA5ouKebSgXSJe12/V5tk3Q==",
-      "path": "log4net-loggly/9.0.0",
-      "hashPath": "log4net-loggly.9.0.0.nupkg.sha512"
-    },
     "Microsoft.AspNetCore.Html.Abstractions/2.2.0": {
       "type": "package",
       "serviceable": true,
@@ -4472,6 +4451,13 @@
       "sha512": "sha512-Nug3rO+7Kl5/SBAadzSMAVgqDlfGjJZ0GenQrLywJ84XGKO0uRqkunz5Wyl0SDwcR71bAATXvSdbdzPrYRYKGw==",
       "path": "microsoft.openapi/1.2.3",
       "hashPath": "microsoft.openapi.1.2.3.nupkg.sha512"
+    },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.17.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-gfDtAL1WhkjbRdbZlt/ZeQYCbgRpNCZCGj+yeqHObsNFRDHjq8qZJOX9AyTxJpSRYMi9SJk7JDyAbbVYRgEhAA==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.17.0",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
     },
     "Microsoft.VisualStudio.Web.CodeGeneration/3.1.5": {
       "type": "package",

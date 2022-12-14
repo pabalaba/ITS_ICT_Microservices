@@ -297,4 +297,3 @@ C:\Users\game\Desktop\ITS_ICT_Microservices\CustomerMicroservice\CustomerMicrose
 C:\Users\game\Desktop\ITS_ICT_Microservices\CustomerMicroservice\CustomerMicroservice\obj\Debug\netcoreapp3.1\CustomerMicroservice.genruntimeconfig.cache
 C:\Users\game\Desktop\ITS_ICT_Microservices\CustomerMicroservice\CustomerMicroservice\bin\Debug\netcoreapp3.1\log4net.dll
 C:\Users\game\Desktop\ITS_ICT_Microservices\CustomerMicroservice\CustomerMicroservice\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Log4Net.AspNetCore.dll
-C:\Users\game\Desktop\ITS_ICT_Microservices\CustomerMicroservice\CustomerMicroservice\bin\Debug\netcoreapp3.1\log4net-loggly.dll
