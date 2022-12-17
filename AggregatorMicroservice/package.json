@@ -6,7 +6,8 @@
   "scripts": {
     "watch": "tsc -w",
     "dev": "nodemon build/index.js",
-    "start": "nodemon build/index.js"
+    "start": "nodemon build/index.js",
+    "build": "npx tsc"
   },
   "author": "",
   "license": "ISC",
