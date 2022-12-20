@@ -8,5 +8,5 @@ RUN echo "127.0.0.1 books-mysql" >> /etc/hosts && mvn --batch-mode package ${MVN
 FROM openjdk:17-alpine
 WORKDIR /app
 COPY --from=builder /app/target/*.jar app.jar
-EXPOSE 9999:9999
+EXPOSE 9999
 ENTRYPOINT [ "java" , "-jar" , "app.jar" ]
