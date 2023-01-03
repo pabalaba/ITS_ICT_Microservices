@@ -1,0 +1,24 @@
+fullnameOverride: "books-mysql"
+auth:
+    rootPassword: "Qwerty123!"
+    createDatabase: true
+    database: "bookdb"
+    username: "pabalaba"
+    password: "pabalaba"
+initdbScripts: 
+  book.sql: |-
+    USE bookdb;
+    CREATE TABLE `books` (
+      `id` int(11) NOT NULL,
+      `title` varchar(100) NOT NULL,
+      `author` varchar(100) NOT NULL,
+      `pages` int(11) DEFAULT NULL,
+      `publication_date` date DEFAULT NULL,
+      `quantity` int(11) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ALTER TABLE `books`
+      ADD PRIMARY KEY (`id`);
+    ALTER TABLE `books`
+      MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+    COMMIT;
+    

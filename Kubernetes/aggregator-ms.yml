@@ -1,0 +1,76 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aggregator-deployment
+  labels:
+    app: aggregator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aggregator
+  template:
+    metadata:
+      labels:
+        app: aggregator
+    spec:
+      containers:
+        - name: aggregator-ms
+          image: pabalaba/aggregator:latest
+          ports:
+          - containerPort: 9997
+          volumeMounts:
+          - mountPath: /app/config
+            readOnly: true
+            name: aggregator-conf
+          env:
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: aggregator-conf
+                  key: PORT
+            - name: API_BORROW
+              valueFrom:
+                configMapKeyRef:
+                  name: aggregator-conf
+                  key: API_BORROW
+            - name: API_CUSTOMER
+              valueFrom:
+                configMapKeyRef:
+                  name: aggregator-conf
+                  key: API_CUSTOMER
+            - name: API_BOOK
+              valueFrom:
+                configMapKeyRef:
+                  name: aggregator-conf
+                  key: API_BOOK
+      volumes:
+      - name: aggregator-conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aggregator-service
+  labels:
+    app: aggregator
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      nodePort: 32106
+      port: 9997
+      targetPort: 9997
+  selector:
+    app: aggregator
+---
+apiVersion: v1
+kind: ConfigMap
+data:
+  PORT: '9997'
+  API_BORROW: 192.168.2.49/borrow-service:27112/api/borrows
+  API_CUSTOMER: 192.168.2.49/customer-service:5000/api/customers
+  API_BOOK: 192.168.2.49/book-service:9999/api/books
+metadata:
+  name: aggregator-conf
+  namespace: default
