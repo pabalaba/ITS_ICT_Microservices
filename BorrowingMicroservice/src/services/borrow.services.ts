@@ -6,12 +6,9 @@ import { Logger } from 'tslog';
 const log = new Logger();
 
 export async function getAllBorrows():Promise<IBorrow[]> {
-  console.log("entering getAllBorrows")
   var time = new Date().getTime();
   const data = await Borrow.find().select("-__v");
-  console.log(data);
   time = new Date().getTime() - time;
-  console.log(time);
   log.info("[BorrowService]:[List] Time required to retrieve all borrows: " + time + "ms");
   return data;
 }

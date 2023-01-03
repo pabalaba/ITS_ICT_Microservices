@@ -6,6 +6,8 @@ async function atlasConnection() {
   const atlasCluster = process.env.MONGO_CLUSTER;
   const atlasDatabase = process.env.MONGO_DB;
 
+  console.log(username, password, atlasDatabase, atlasCluster);
+
   const uri = `mongodb+srv://${username}:${password}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`;
 
   try {
