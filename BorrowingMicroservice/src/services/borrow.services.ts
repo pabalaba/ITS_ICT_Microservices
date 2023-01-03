@@ -6,6 +6,7 @@ import { Logger } from 'tslog';
 const log = new Logger();
 
 export async function getAllBorrows():Promise<IBorrow[]> {
+  console.log("entering getAllBorrows")
   var time = new Date().getTime();
   const data = await Borrow.find().select("-__v");
   time = new Date().getTime() - time;

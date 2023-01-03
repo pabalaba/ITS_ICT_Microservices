@@ -9,7 +9,7 @@ const borrowRouter = Router();
 
 borrowRouter.get('/api/borrows', async (req: Request, res: Response) => {
   log.info('[BorrowContoller]:[List] Operation read all');
-  res.json(await getAllBorrows());
+  return res.json(await getAllBorrows());
 });
 
 borrowRouter.get('/api/borrows/:id', async (req: Request, res: Response) => {
@@ -59,7 +59,7 @@ borrowRouter.delete('/api/borrows/:id', async (req: Request, res: Response) => {
   const id = new mongoose.Types.ObjectId(req.params.id);
   log.info('[BorrowContoller]:[Delete] Operation delete one. ID: ' + id);
   const result = await deleteBorrow(id);
-  res.status(result?204:410).json();
+  return res.status(result?204:410).json();
 });
 
 export default borrowRouter;
