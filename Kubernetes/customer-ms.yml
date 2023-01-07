@@ -19,7 +19,7 @@ spec:
         - name: customer-ms
           image: pabalaba/customer:latest
           ports:
-          - containerPort: 5000
+          - containerPort: 80
           volumeMounts:
           - mountPath: /app/config
             readOnly: true
@@ -44,7 +44,7 @@ spec:
     - name: http
       nodePort: 32105
       port: 5000
-      targetPort: 5000
+      targetPort: 80
   selector:
     app: customer
 ---
