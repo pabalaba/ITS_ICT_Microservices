@@ -7,7 +7,7 @@ export default async (id: number): Promise<ICustomer | null>  => {
   try{
     const {data} = 
       await axios.get<ICustomer>(
-        API_CUSTOMER || 'http://localhost:5001/api/customers/'+id,
+        API_CUSTOMER+id || 'http://localhost:5001/api/customers/'+id,
         {
           headers: {
             Accept: 'application/json',

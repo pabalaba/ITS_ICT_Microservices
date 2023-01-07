@@ -6,7 +6,7 @@ export default async (id: number): Promise<boolean>  => {
   try{
     const {status} = 
       await axios.put(
-        API_BOOK || 'http://localhost:9999/api/books/quantity/sub/'+id,
+        API_BOOK+id || 'http://localhost:9999/api/books/quantity/sub/'+id,
         {
           headers: {
             Accept: 'application/json',
