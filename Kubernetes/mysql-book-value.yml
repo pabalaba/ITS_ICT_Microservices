@@ -1,4 +1,6 @@
 fullnameOverride: "books-mysql"
+image:
+  tag: 8.0.31
 auth:
     rootPassword: "Qwerty123!"
     createDatabase: true
