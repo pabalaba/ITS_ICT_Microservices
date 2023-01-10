@@ -35,7 +35,7 @@ export class CreateBorrow {
       try{
       const {data} =   
       await axios.post<IBorrowRead>(
-        'http://localhost:27112/api/borrows',
+        process.env.API_BORROW  || 'http://localhost:27112/api/borrows',
         {
           "id_book": id_book,
           "id_customer": id_customer
@@ -53,7 +53,7 @@ export class CreateBorrow {
       var b = await readBook(id_customer);
       
       if(!c || !b) {
-        await axios.delete('http://localhost:27112/api/borrows/'+data._id);
+        await axios.delete((process.env.API_BORROW  || 'http://localhost:27112/api/borrows/')+data._id);
         await updateAddBook(id_book);
         throw new Error;
       }
@@ -77,7 +77,7 @@ export class CreateBorrow {
 
 const isBookPresent = async (book_id: number):Promise<boolean> => {
   const {status} = await axios.get<IBook>(
-    'http://localhost:9999/api/books/'+book_id,
+    (process.env.API_BOOK || 'http://localhost:9999/api/books/')+book_id,
     {
       headers: {
         Accept: 'application/json',
@@ -93,7 +93,7 @@ const isBookPresent = async (book_id: number):Promise<boolean> => {
 const isCustomerPresent = async (customer_id: number):Promise<boolean> => {
   try{
     const {status} = await axios.get<ICustomer>(
-      'http://localhost:5001/api/customers/'+customer_id,
+      (process.env.API_CUSTOMER || 'http://localhost:5001/api/customers/')+customer_id,
       {
         headers: {
           Accept: 'application/json',
