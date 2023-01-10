@@ -8,7 +8,7 @@ import notFoundMiddleware from './middlewares/notfound.middleware';
 dotenv.config();
 
 const app: Express = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 27112;
 
 (async () => {
   await atlasConnection();
