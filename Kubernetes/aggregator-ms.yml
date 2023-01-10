@@ -68,9 +68,9 @@ apiVersion: v1
 kind: ConfigMap
 data:
   PORT: '9997'
-  API_BORROW: 192.168.49.2:32107/api/borrows/
-  API_CUSTOMER: 192.168.49.2:32105/api/customers/
-  API_BOOK: 192.168.49.2:32104/api/books/
+  API_BORROW: http://192.168.49.2:32107/api/borrows/
+  API_CUSTOMER: http://192.168.49.2:32105/api/customers/
+  API_BOOK: http://192.168.49.2:32104/api/books/
 metadata:
   name: aggregator-conf
   namespace: default
