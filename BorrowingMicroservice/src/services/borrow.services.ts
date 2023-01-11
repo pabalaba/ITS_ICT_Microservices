@@ -7,7 +7,7 @@ const log = new Logger();
 
 export async function getAllBorrows():Promise<IBorrow[]> {
   var time = new Date().getTime();
-  const data = await Borrow.find().select("-__v");
+  const data = await Borrow.find({}).select("-__v").exec();
   time = new Date().getTime() - time;
   log.info("[BorrowService]:[List] Time required to retrieve all borrows: " + time + "ms");
   return data;

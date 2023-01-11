@@ -7,7 +7,7 @@ export default async (id: number): Promise<IBook | null>  => {
   try{
     const {data} = 
       await axios.get<IBook>(
-        API_BOOK || 'http://localhost:9999/api/books/'+id,
+        (API_BOOK || 'http://localhost:9999/api/books/')+id,
         {
           headers: {
             Accept: 'application/json',

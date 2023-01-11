@@ -1,0 +1,25 @@
+fullnameOverride: "customers-mysql"
+image:
+  tag: 8.0.31
+auth:
+    rootPassword: "Qwerty123!"
+    createDatabase: true
+    database: "customerdb"
+    username: "pabalaba"
+    password: "pabalaba"
+initdbScripts: 
+  customer.sql: |-
+    USE customerdb;
+    CREATE TABLE `Customer` (
+      `Id` int(11) NOT NULL,
+      `Name` varchar(255) NOT NULL,
+      `Surname` varchar(255) NOT NULL,
+      `Address` varchar(255) NOT NULL,
+      `Age` int(11) NOT NULL,
+      `Phone` varchar(20) NOT NULL
+    ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ALTER TABLE `Customer`
+      ADD PRIMARY KEY (`Id`);
+    ALTER TABLE `Customer`
+      MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT;
+    COMMIT;

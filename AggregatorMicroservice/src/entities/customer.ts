@@ -6,7 +6,7 @@ export interface ICustomer{
   surname: string;
   address: string;
   age: number;
-  phone_number: string;
+  phone: string;
 }
 
 @ObjectType()
@@ -27,5 +27,5 @@ export class Customer{
   age?: number;
 
   @Field(() => String, {nullable: true})
-  phone_number!: string;
+  phone!: string;
 }

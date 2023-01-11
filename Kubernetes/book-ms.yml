@@ -1,0 +1,65 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-deployment
+  labels:
+    app: book
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: book
+  template:
+    metadata:
+      labels:
+        app: book
+    spec:
+      containers:
+        - name: book-ms
+          image: pabalaba/book:latest
+          ports:
+          - containerPort: 9999
+          volumeMounts:
+          - mountPath: /app/config
+            readOnly: true
+            name: book-conf
+      volumes:
+      - name: book-conf
+        configMap:
+          name: book-conf
+          items:
+            - key: application.properties
+              path: application.properties
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: book-service
+  labels:
+    app: book
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      nodePort: 32104
+      port: 9999
+      targetPort: 9999
+  selector:
+    app: book
+---
+apiVersion: v1
+kind: ConfigMap
+data:
+  application.properties: |-
+    spring.datasource.type=com.zaxxer.hikari.HikariDataSource
+    spring.datasource.url=jdbc:mysql://books-mysql:3306/bookdb
+    spring.datasource.username=pabalaba
+    spring.datasource.password=pabalaba
+    server.port=9999
+    
+    # this removes the stack trace from the error
+    server.error.include-stacktrace=never
+metadata:
+  name: book-conf
+  namespace: default

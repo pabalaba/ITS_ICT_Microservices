@@ -1,0 +1,77 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: borrow-deployment
+  labels:
+    app: borrow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: borrow
+  template:
+    metadata:
+      labels:
+        app: borrow
+    spec:
+      containers:
+        - name: borrow-ms
+          image: pabalaba/borrow:latest
+          ports:
+          - containerPort: 27112
+          volumeMounts:
+          - mountPath: /app/config
+            readOnly: true
+            name: borrow-conf
+          env:
+            - name: MONGO_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: borrow-conf
+                  key: MONGO_USER
+            - name: MONGO_PASS
+              valueFrom:
+                configMapKeyRef:
+                  name: borrow-conf
+                  key: MONGO_PASS
+            - name: MONGO_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: borrow-conf
+                  key: MONGO_DB
+            - name: MONGO_CLUSTER
+              valueFrom:
+                configMapKeyRef:
+                  name: borrow-conf
+                  key: MONGO_CLUSTER
+      volumes:
+      - name: borrow-conf
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: borrow-service
+  labels:
+    app: borrow
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      nodePort: 32107
+      port: 27112
+      targetPort: 27112
+  selector:
+    app: borrow
+---
+apiVersion: v1
+kind: ConfigMap
+data:
+  PORT: '27112'
+  MONGO_USER: borrowing
+  MONGO_PASS: borrowing
+  MONGO_CLUSTER: //TBC
+  MONGO_DB: microservices
+metadata:
+  name: borrow-conf
+  namespace: default

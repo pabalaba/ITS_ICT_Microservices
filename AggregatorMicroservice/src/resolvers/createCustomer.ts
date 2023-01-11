@@ -23,7 +23,7 @@ export class CreateCustomer {
       try{
       const {data} =   
       await axios.post<ICustomer>(
-        'http://localhost:5001/api/customers',
+        process.env.API_CUSTOMER || 'http://localhost:5001/api/customers',
         {
           "name": name,
           "surname": surname,
