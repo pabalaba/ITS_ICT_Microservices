@@ -47,11 +47,13 @@ export class CreateBorrow {
         },
 
       );
-
+      console.log(data)
       var borrow = new Borrow();
       var c = await readCustomer(id_customer);
       var b = await readBook(id_customer);
       
+      console.log(borrow,c,b);
+
       if(!c || !b) {
         await axios.delete((process.env.API_BORROW  || 'http://localhost:27112/api/borrows/')+data._id);
         await updateAddBook(id_book);

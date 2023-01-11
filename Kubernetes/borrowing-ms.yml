@@ -70,7 +70,7 @@ data:
   PORT: '27112'
   MONGO_USER: borrowing
   MONGO_PASS: borrowing
-  MONGO_CLUSTER: //TBC
+  MONGO_CLUSTER: borrows-mongodb:27017
   MONGO_DB: microservices
 metadata:
   name: borrow-conf
