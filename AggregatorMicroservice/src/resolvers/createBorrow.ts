@@ -20,9 +20,11 @@ export class CreateBorrow {
     @Arg("id_customer", () => Int)
     id_customer: number
   ): Promise<Borrow | null | GraphQLError> {
+    console.log("hello")
     try{
       const book = await isBookPresent(id_book);
       const customer = await isCustomerPresent(id_customer);
+      console.log(book,customer)
       if(!book || !customer) {
         throw new Error;
       }

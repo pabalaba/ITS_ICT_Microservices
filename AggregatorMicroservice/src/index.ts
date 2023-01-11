@@ -18,8 +18,6 @@ const PORT = process.env.PORT;
 
 const main = async () => {
 
-  console.log(process.env.API_BOOK);
-
   const apolloServer = new ApolloServer({
     schema: await buildSchema({
       resolvers: [
