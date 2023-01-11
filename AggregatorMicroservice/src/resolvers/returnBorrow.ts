@@ -19,7 +19,7 @@ export class ReturnBorrow {
     id_borrow: string
   ): Promise<Borrow | null | GraphQLError> {
     try{
-        const {data,status} = await axios.put((borrows || 'http://localhost:27112/api/borrows/return/')+id_borrow);
+        const {data,status} = await axios.put((borrows+"return/" || 'http://localhost:27112/api/borrows/return/')+id_borrow);
         var success;
         if(status==200){
           success = await updateAddBook(data.id_book);
