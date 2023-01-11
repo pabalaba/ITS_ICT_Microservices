@@ -20,11 +20,9 @@ export class CreateBorrow {
     @Arg("id_customer", () => Int)
     id_customer: number
   ): Promise<Borrow | null | GraphQLError> {
-    console.log("hello")
     try{
       const book = await isBookPresent(id_book);
       const customer = await isCustomerPresent(id_customer);
-      console.log(book,customer)
       if(!book || !customer) {
         throw new Error;
       }
@@ -49,12 +47,10 @@ export class CreateBorrow {
         },
 
       );
-      console.log(data)
       var borrow = new Borrow();
       var c = await readCustomer(id_customer);
       var b = await readBook(id_customer);
       
-      console.log(borrow,c,b);
 
       if(!c || !b) {
         await axios.delete((process.env.API_BORROW  || 'http://localhost:27112/api/borrows/')+data._id);
