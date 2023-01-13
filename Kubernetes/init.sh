@@ -29,6 +29,13 @@ helm upgrade --values mongodb-borrow-value.yml borrows-mongodb bitnami/mongodb
 
 sleep 30
 
+echo "helm install --values rabbitmq-notification-value.yml notifications-rabbit bitnami/rabbitmq"
+helm install --values rabbitmq-notification-value.yml notifications-rabbit bitnami/rabbitmq
+
+echo "helm upgrade --values rabbitmq-notification-value.yml notifications-rabbit bitnami/rabbitmq"
+helm upgrade --values rabbitmq-notification-value.yml notifications-rabbit bitnami/rabbitmq
+
+sleep 30
 echo "Databases initialized!"
 
 echo "------------------------------------------------"
@@ -55,6 +62,11 @@ sleep 30
 echo ""
 echo "kubectl apply -f aggregator-ms.yml"
 kubectl apply -f aggregator-ms.yml
+
+sleep 30
+
+echo "kubectl apply -f notification-ms.yml"
+kubectl apply -f notification-ms.yml
 
 echo ""
 echo "Microservices initialized!"

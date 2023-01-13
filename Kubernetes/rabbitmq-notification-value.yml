@@ -1,0 +1,4 @@
+fullnameOverride: "notifications-rabbit"
+auth:
+  username: guest
+  password: guest

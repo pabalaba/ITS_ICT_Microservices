@@ -17,6 +17,9 @@ ENV MONGO_USER=root
 ENV MONGO_PASS=root
 ENV MONGO_CLUSTER=
 ENV MONGO_DB=microservices
+ENV AMQP_SERVER=localhost:5672
+ENV AMQP_USER=guest
+ENV AMQP_PASSWORD=guest
 
 COPY package*.json ./
 RUN [ "npm" , "ci" ]
