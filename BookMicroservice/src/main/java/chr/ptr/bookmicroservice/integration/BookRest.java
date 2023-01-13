@@ -2,6 +2,8 @@ package chr.ptr.bookmicroservice.integration;
 
 import chr.ptr.bookmicroservice.entities.Book;
 import chr.ptr.bookmicroservice.services.BookService;
+import chr.ptr.bookmicroservice.services.ITraceService;
+import chr.ptr.bookmicroservice.services.TraceService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -13,6 +15,9 @@ import java.util.List;
 @RestController
 @RequestMapping("api")
 public class BookRest {
+
+    @Autowired
+    private TraceService traceService;
 
     @Autowired
     private BookService service;

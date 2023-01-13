@@ -1,0 +1,61 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-deployment
+  labels:
+    app: notification
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification
+  template:
+    metadata:
+      labels:
+        app: notification
+    spec:
+      containers:
+        - name: notification-ms
+          image: pabalaba/notification:latest
+          ports:
+          - containerPort: 9999
+          volumeMounts:
+          - mountPath: /app/config
+            readOnly: true
+            name: notification-conf
+      volumes:
+      - name: notification-conf
+        configMap:
+          name: notification-conf
+          items:
+            - key: application.properties
+              path: application.properties
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: notification-service
+  labels:
+    app: notification
+spec:
+  type: NodePort
+  ports:
+    - name: http
+      nodePort: 32108
+      port: 9999
+      targetPort: 9999
+  selector:
+    app: notification
+---
+apiVersion: v1
+kind: ConfigMap
+data:
+  application.properties: |-
+    spring.rabbitmq.host=notifications-rabbit
+    spring.rabbitmq.port=5672
+    spring.rabbitmq.username=guest
+    spring.rabbitmq.password=guest
+metadata:
+  name: notification-conf
+  namespace: default

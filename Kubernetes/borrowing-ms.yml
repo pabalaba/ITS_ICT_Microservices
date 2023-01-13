@@ -45,6 +45,21 @@ spec:
                 configMapKeyRef:
                   name: borrow-conf
                   key: MONGO_CLUSTER
+            - name: AMQP_SERVER
+              valueFrom:
+                configMapKeyRef:
+                  name: borrow-conf
+                  key: AMQP_SERVER
+            - name: AMQP_USER
+              valueFrom:
+                configMapKeyRef:
+                  name: borrow-conf
+                  key: AMQP_USER
+            - name: AMQP_PASSWORD
+              valueFrom:
+                configMapKeyRef:
+                  name: borrow-conf
+                  key: AMQP_PASSWORD
       volumes:
       - name: borrow-conf
 ---
@@ -70,8 +85,11 @@ data:
   PORT: '27112'
   MONGO_USER: borrowing
   MONGO_PASS: borrowing
-  MONGO_CLUSTER: //TBC
+  MONGO_CLUSTER: borrows-mongodb:27017
   MONGO_DB: microservices
+  AMQP_SERVER: notifications-rabbit:5672
+  AMQP_USER: guest
+  AMQP_PASSWORD: guest
 metadata:
   name: borrow-conf
   namespace: default

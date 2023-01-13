@@ -7,8 +7,7 @@ async function atlasConnection() {
   const atlasDatabase = process.env.MONGO_DB;
 
   
-  const uri = `mongodb://${username}:${password}@borrows-mongodb:27017/${atlasDatabase}?directConnection=true&appName=mongosh+1.6.2`//`mongodb+srv://${username}:${password}@${atlasCluster}/${atlasDatabase}?retryWrites=true&w=majority`;
-
+  const uri = `mongodb://${username}:${password}@${atlasCluster}/${atlasDatabase}?directConnection=true&appName=mongosh+1.6.2`
   try {
     await mongoose.connect(uri,
       () => console.log('Database connection established!')

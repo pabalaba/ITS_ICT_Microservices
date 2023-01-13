@@ -2,6 +2,7 @@ import {Request} from 'express';
 import mongoose, { Schema } from 'mongoose';
 import Borrow, { IBorrow } from '../entities/borrow'
 import { Logger } from 'tslog';
+import go  from '../rabbitmq/publisher';
 
 const log = new Logger();
 
@@ -33,6 +34,7 @@ export async function createBorrow(req: Request):Promise<IBorrow | null> {
   const id = (await borrow.save()).id;
   time = new Date().getTime() - time;
   log.info("[BorrowService]:[Create] Time required to create a borrow: " + time + "ms");
+  go("borrows", `A new borrow has been created for customer with id ${req.body.id_customer} and book with id ${req.body.id_book}`);
   return await getBorrowById(id);
   }catch(err){
     log.error("[BorrowService]:[Create] Error during creation");
@@ -63,8 +65,6 @@ export async function returnBorrow(id:mongoose.Types.ObjectId): Promise<IBorrow 
 
   const borrowFromDb = await getBorrowById(id);
 
-  console.log(borrowFromDb);
-
   if(!borrowFromDb)
     return null;
 
@@ -74,7 +74,7 @@ export async function returnBorrow(id:mongoose.Types.ObjectId): Promise<IBorrow 
   await borrowFromDb.save();
   time = new Date().getTime() - time;
   log.info("[BorrowService]:[Return] Time required to return a borrow: " + time + "ms");
-  
+  go("borrows", `The borrow with id ${id} has been returned. Notify customer with id ${borrowFromDb.id_customer}. Update book with id ${borrowFromDb.id_book}`);
   return borrowFromDb;
 }
 
