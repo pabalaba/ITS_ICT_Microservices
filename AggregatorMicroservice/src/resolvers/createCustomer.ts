@@ -40,10 +40,10 @@ export class CreateCustomer {
       );
       return data;
       } catch (error) {
-        return new GraphQLError('Error during the creation of a new borrow');
+        return new GraphQLError('Error during the creation of a new customer');
       }
     } catch (error) {
-      return new GraphQLError('Book or Customer not found');
+      return new GraphQLError('Error');
     }
   }
 }
