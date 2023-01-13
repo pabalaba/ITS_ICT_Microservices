@@ -6,16 +6,10 @@ echo "Initializing databases..."
 echo "helm install --values mysql-book-value.yml books-mysql bitnami/mysql"
 helm install --values mysql-book-value.yml books-mysql bitnami/mysql
 
-echo "helm upgrade --values mysql-book-value.yml books-mysql bitnami/mysql"
-helm upgrade --values mysql-book-value.yml books-mysql bitnami/mysql
-
 sleep 30
 
 echo "helm install --values mysql-customer-value.yml customers-mysql bitnami/mysql"
 helm install --values mysql-customer-value.yml customers-mysql bitnami/mysql
-
-echo "helm upgrade --values mysql-customer-value.yml customers-mysql bitnami/mysql"
-helm upgrade --values mysql-customer-value.yml customers-mysql bitnami/mysql
 
 
 sleep 30
@@ -23,12 +17,13 @@ sleep 30
 echo "helm install --values mongodb-borrow-value.yml borrows-mongodb bitnami/mongodb"
 helm install --values mongodb-borrow-value.yml borrows-mongodb bitnami/mongodb
 
-echo "helm upgrade --values mongodb-borrow-value.yml borrows-mongodb bitnami/mongodb"
-helm upgrade --values mongodb-borrow-value.yml borrows-mongodb bitnami/mongodb
-
 
 sleep 30
 
+echo "helm install --values rabbitmq-notification-value.yml notifications-rabbit bitnami/rabbitmq"
+helm install --values rabbitmq-notification-value.yml notifications-rabbit bitnami/rabbitmq
+
+sleep 30
 echo "Databases initialized!"
 
 echo "------------------------------------------------"
@@ -55,6 +50,11 @@ sleep 30
 echo ""
 echo "kubectl apply -f aggregator-ms.yml"
 kubectl apply -f aggregator-ms.yml
+
+sleep 30
+
+echo "kubectl apply -f notification-ms.yml"
+kubectl apply -f notification-ms.yml
 
 echo ""
 echo "Microservices initialized!"
