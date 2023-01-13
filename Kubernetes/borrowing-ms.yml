@@ -87,7 +87,7 @@ data:
   MONGO_PASS: borrowing
   MONGO_CLUSTER: borrows-mongodb:27017
   MONGO_DB: microservices
-  AMQP_SERVER: notification-rabbit:5672
+  AMQP_SERVER: notifications-rabbit:5672
   AMQP_USER: guest
   AMQP_PASSWORD: guest
 metadata:
