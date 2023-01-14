@@ -10,6 +10,7 @@ import { ListCustomers } from "./resolvers/listCustomers";
 import { ListCustomersBorrows } from "./resolvers/listCustomersBorrows";
 import { CreateBorrow } from "./resolvers/createBorrow";
 import { CreateCustomer } from "./resolvers/createCustomer";
+import { CreateBook } from "./resolvers/createBook";
 import { ReturnBorrow } from "./resolvers/returnBorrow";
 
 dotenv.config();
@@ -27,6 +28,7 @@ const main = async () => {
                   ListCustomersBorrows,
                   CreateBorrow,
                   CreateCustomer,
+                  CreateBook,
                   ReturnBorrow
                 ],
       validate: false,
