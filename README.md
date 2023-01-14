@@ -82,6 +82,11 @@ chmod +x init.sh
 ./init.sh
 ```
 
+Fix to "Context dedline exceeded"
+```sh
+minikube ssh docker pull repo/image:version
+```
+
 ### Project Tree ###
 ```sh
 +---.github
