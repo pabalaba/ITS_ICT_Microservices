@@ -6,23 +6,38 @@
 
 ### Date: 2022-2023
 
+--------------------------------------------
 
 ## Index
 - #### [**Architecture**](#architecture-1)
+- #### [**Relations**](#relations-1)
 - #### [**Tech Stack**](#tech-stack-1)
 - #### [**Requirements**](#requirements-1)
 - #### [**Project Tree**](#project-tree-1)
 
+--------------------------------------------
 
 ### Architecture ###
 
 ![](Doc/architettura.png)
 
-Legend:
+*Legend*
 Green Square: Kubernetes
 Yellow Square: Pod
 Gear: Microservice
 Cilinder: Database
+
+
+### Relations ###
+
+|                          	| Book                               	| Borrow                                                   	| Customer                  	|
+|--------------------------	|------------------------------------	|----------------------------------------------------------	|---------------------------	|
+| Business<br>Requirements 	| Manage the books                   	| Manage the orders                                        	| Manage the customers      	|
+| Functional               	| Add,Remove,Update,<br>Get,Quantity 	| Add,Remove,Update,<br>Get,Return                         	| Add,Remove,Update,<br>Get 	|
+| Data Entities            	| Books                              	| Borrows                                                  	| Customers                 	|
+| Data<br>Autonomy         	| None                               	| Related to book <br>by ID<br>Related to customer<br>by ID 	| None                      	|
+
+
 
 ### Tech Stack ###
 
@@ -82,7 +97,7 @@ chmod +x init.sh
 ./init.sh
 ```
 
-Fix to "Context dedline exceeded"
+Fix to "Context deadline exceeded"
 ```sh
 minikube ssh docker pull repo/image:version
 ```
