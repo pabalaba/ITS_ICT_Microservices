@@ -22,9 +22,13 @@
 ![](Doc/architettura.png)
 
 *Legend*
+
 Green Square: Kubernetes
+
 Yellow Square: Pod
+
 Gear: Microservice
+
 Cilinder: Database
 
 
